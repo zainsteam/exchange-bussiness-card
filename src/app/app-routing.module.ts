@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'card-list',
     loadChildren: () => import('./card-list/card-list.module').then( m => m.CardListPageModule)
+  },
+  {
+    path: 'add-manual-card',
+    loadChildren: () => import('./add-manual-card/add-manual-card.module').then( m => m.AddManualCardPageModule)
   }
 ];
 

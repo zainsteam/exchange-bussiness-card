@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>AddCard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<h1>Add Card</h1>
+  <div style="margin: 0 18% 0 18%;" (click)="barscan()">
+    <ion-item lines="none" style=" padding:0 !important">
+      <img src="assets/qr.png" style="margin: 10% auto 3%;width: 155px;" />
+    </ion-item>
+
+    <ion-item no-padding lines="none" >
+      <ion-icon name="camera" style="font-size: 72px;margin-left: 5%;"></ion-icon> 
+      <p style="margin: 0 6%;">use your phone to scan a QR code</p>
+    </ion-item>
+  </div>
+  <ion-input placeholder="Enter The Code" value="{{code}}" [(ngModel)]="code" type="text" maxlength="4" (ngModelChange)="handleFirstNameValue(code)"></ion-input>
+  <ion-button expand="block" type="button" (click)="presentModal()">Add Bussiness Card Manualy </ion-button>
 </ion-content>
