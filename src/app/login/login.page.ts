@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { ApiService } from '../service/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder,
     private navCtrl: NavController,
+    private route: Router,
     public apiService: ApiService) {
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'), Validators.required])],
@@ -56,7 +58,10 @@ export class LoginPage implements OnInit {
       console.log(data);
       if (data.login) {
         console.log(data.user.user);
-        this.navCtrl.navigateForward(['/card-list']);
+        localStorage.setItem('user', JSON.stringify(data.user.user));
+        localStorage.setItem('userId', JSON.stringify(data.user._id));
+        // this.navCtrl.navigateForward(['/card-list']);
+        this.route.navigateByUrl('/card-list');
       }
       else {
         console.log('Error  ',data.message);

@@ -1,10 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>AddManualCard</ion-title>
+    <ion-title>Add Card</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons fill="clear" style="font-size: 12px;padding-left: 5px;" (click)="cerrar()" >
+        <ion-icon slot="icon-only" name="close" style="margin-right: 8px;font-size: 23px"></ion-icon>
+     </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-button color="primary" expand="full" (click)="cerrar()"> close</ion-button>
 </ion-header>
 
 <ion-content>
-<h1> add bussiness card manualy</h1>
+  <form [formGroup]="cardAddForm" (ngSubmit)="cardAdd()">
+    <ion-list class="ion-margin-horizontal">
+
+      <ion-item class="listItem">
+        <ion-label position="stacked" class="listLabel">Name</ion-label>
+        <ion-input type="text" formControlName="name" value="" class="listInput"></ion-input>
+      </ion-item>
+
+      <ion-item class="listItem">
+        <ion-label position="stacked" class="listLabel">Surname</ion-label>
+        <ion-input type="text" formControlName="surname" value="" class="listInput"></ion-input>
+      </ion-item>
+
+      <ion-item class="listItem">
+        <ion-label position="stacked" class="listLabel">Workplace</ion-label>
+        <ion-input type="text" formControlName="workplace" value="" class="listInput"></ion-input>
+      </ion-item>
+
+      <ion-item class="listItem">
+        <ion-label position="stacked" class="listLabel">Email</ion-label>
+        <ion-input type="email" formControlName="email" value="" class="listInput"></ion-input>
+      </ion-item>
+
+      <ion-item class="listItem">
+        <ion-label position="stacked" class="listLabel">Cell No</ion-label>
+        <ion-input type="tel" formControlName="cellNo" class="listInput"></ion-input>
+      </ion-item>
+
+    </ion-list>
+   
+    <ion-row style="justify-content: center;margin-top: 5%;">
+      <ion-button class="custom-buttom" type="submit" shape="round" [disabled]="!cardAddForm.valid">
+        ADD CARD
+      </ion-button>
+    </ion-row>
+
+  </form>
 </ion-content>

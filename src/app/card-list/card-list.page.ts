@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../service/api/api.service';
 
 @Component({
   selector: 'app-card-list',
@@ -7,40 +8,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardListPage implements OnInit {
 
-  public cardname : any[] ;
+  userId;
+  public cards : any[] ;
 
-//   cardname : [
-//      "zain",
-//      "basit",
-//      "arij",
-//      "kamran"
-// ];
+  constructor(public apiService: ApiService) { 
+  //   this.cardname = [{
+  //     name : "zain",
+  //    number : "03122880329",
+  //    email : "zain@gmail.com",
+  //    place : "malir"
+  //  },{
+  //     name : "basit",
+  //    number : "03122880329",
+  //    email : "basit@gmail.com",
+  //    place : "malir"
+  //  },{
+  //     name : "arij",
+  //    number : "03122880329",
+  //    email : "arij@gmail.com",
+  //    place : "nazimabad"
+  //  },{
+  //     name : "kamran",
+  //    number : "03122880329",
+  //    email : "kamran@gmail.com",
+  //    place : "safora"
+  //  }] 
 
-  constructor() { 
-    this.cardname = [{
-      name : "zain",
-     number : "03122880329",
-     email : "zain@gmail.com",
-     place : "malir"
-   },{
-      name : "basit",
-     number : "03122880329",
-     email : "basit@gmail.com",
-     place : "malir"
-   },{
-      name : "arij",
-     number : "03122880329",
-     email : "arij@gmail.com",
-     place : "nazimabad"
-   },{
-      name : "kamran",
-     number : "03122880329",
-     email : "kamran@gmail.com",
-     place : "safora"
-   }] 
+    this.userId = JSON.parse(localStorage.getItem('userId'));
+    console.log('userId', this.userId);
   }
 
   ngOnInit() {
+    this.getCards();
+  }
+
+  getCards() {
+
+    this.apiService.getCards(this.userId)
+    .subscribe((data:any) => //Start Service
+    {
+      console.log(data);
+      this.cards = data;
+    },
+    err => {
+      console.log(err);
+      console.log(err.statusText);
+    });
+  }
+
+  editCard(cardId) {
+    console.log("editCard run");
+    console.log("cardId ", cardId);
   }
 
 }

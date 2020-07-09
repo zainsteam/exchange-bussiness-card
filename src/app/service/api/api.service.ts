@@ -19,4 +19,18 @@ export class ApiService {
     return this.http.post(BASE_SERVER+'/createUser', users)
     .pipe(map(res => res));
   }
+
+  cardAdd(data){
+    return this.http.post(BASE_SERVER+'/createCard', data)
+    .pipe(map(res => res));
+  }
+
+  getCards(userId){
+
+    var data = {
+      userId: userId
+    };
+    return this.http.post(BASE_SERVER+'/getAllUserCards', data)
+    .pipe(map(res => res));
+  }
 }
