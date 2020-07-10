@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list *ngFor="let item of cards">
-    <ion-item>
+    <ion-item (click)="viewCard(item._id)">
       <ion-label class="ion-text-wrap">
         <ion-text color="primary">
           <h3>{{item.card.name}}</h3>

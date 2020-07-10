@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddManualCardPage } from '../add-manual-card/add-manual-card.page';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class AddCardPage implements OnInit {
 
   code : string;
 
-  constructor(public modalController: ModalController) { }
+  constructor(public modalController: ModalController,
+    private barcodeScanner: BarcodeScanner) { }
 
   ngOnInit() {
   }
@@ -27,9 +29,15 @@ export class AddCardPage implements OnInit {
   }
 
 
-  barscan(){
+  QRscan(){
     console.log("QR code scanning");
     
+this.barcodeScanner.scan().then(barcodeData => {
+  console.log('Barcode data', barcodeData);
+ }).catch(err => {
+     console.log('Error', err);
+ });
+   
   }
 
   handleFirstNameValue(input){

@@ -1,5 +1,7 @@
 {
   "name": "Echange bussiness card",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

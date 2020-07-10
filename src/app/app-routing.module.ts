@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'add-manual-card',
     loadChildren: () => import('./add-manual-card/add-manual-card.module').then( m => m.AddManualCardPageModule)
+  },
+  {
+    path: 'card-view',
+    loadChildren: () => import('./card-view/card-view.module').then( m => m.CardViewPageModule)
   }
+
 ];
 
 @NgModule({

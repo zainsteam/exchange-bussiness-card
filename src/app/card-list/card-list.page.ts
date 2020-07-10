@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api/api.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-card-list',
@@ -11,7 +13,9 @@ export class CardListPage implements OnInit {
   userId;
   public cards : any[] ;
 
-  constructor(public apiService: ApiService) { 
+  constructor(public apiService: ApiService,
+    private route: Router,
+    public navCtrl: NavController) { 
   //   this.cardname = [{
   //     name : "zain",
   //    number : "03122880329",
@@ -40,6 +44,14 @@ export class CardListPage implements OnInit {
 
   ngOnInit() {
     this.getCards();
+  }
+
+  viewCard(id){
+    console.log(id);
+    this.navCtrl.navigateForward(['card-view'],true, id);
+    // this.route.navigate(['view-card',{id:id}])
+
+
   }
 
   getCards() {
