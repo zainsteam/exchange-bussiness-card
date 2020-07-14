@@ -4,6 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf="card">
+   <p>{{card.QRCode}}</p>
+  <p>{{card.Workplace}}</p>
+  <p>{{card.cellNo}}</p>
+  <p>{{card.name}}</p>
+  <p>{{card.surname}}</p>
+  <ion-button expand="block" type="button" (click)="gencode(cardid)">Generate Code / QRcode  </ion-button>
+  <ion-item *ngIf="code">
+    <p>{{code}}</p>
+  </ion-item>
 </ion-content>

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
+import { Contacts} from '@ionic-native/contacts';
+import { Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-add-manual-card',
@@ -19,12 +22,12 @@ export class AddManualCardPage implements OnInit {
   successMessage: string = '';
   loading;
 
-  constructor( public modalCtrl: ModalController,
+  constructor(public modalCtrl: ModalController,
     public apiService: ApiService,
     public formBuilder: FormBuilder,
-    private route: Router
-    ) 
-  {
+    private route: Router,
+    private contacts: Contacts
+  ) {
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log('user', this.user);
 
@@ -32,24 +35,34 @@ export class AddManualCardPage implements OnInit {
     console.log('userId', this.userId);
 
     this.cardAddForm = formBuilder.group({
-      name: ['', Validators.compose([ Validators.required ])],
-      surname: ['', Validators.compose([ Validators.required ])],
-      workplace: ['', Validators.compose([ Validators.required ])],
+      name: ['', Validators.compose([Validators.required])],
+      surname: ['', Validators.compose([Validators.required])],
+      workplace: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
       cellNo: ['']
     });
+  }
+
+  saveContact() {
+    let contact: Contact = this.contacts.create();
+
+    contact.name = new ContactName(null, 'Smith', 'John');
+    contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+    contact.save().then(
+      async() => await console.log('Contact saved!', contact));
+    
   }
 
   ngOnInit() {
   }
 
   cerrar() {
+    this.saveContact();
 
     this.modalCtrl.dismiss();
   }
 
-  async cardAdd()
-  {
+  async cardAdd() {
     console.log("cardAdd Method");
 
     const data = {
@@ -64,16 +77,17 @@ export class AddManualCardPage implements OnInit {
     console.log(data);
 
     this.apiService.cardAdd(data)
-    .subscribe((data:any) => //Start Service
-    {
-      console.log(data);
-      this.cerrar();
+      .subscribe((data: any) => //Start Service
+      {
+        console.log(data);
+        
+        this.cerrar();
 
-    },
-    err => {
-      console.log(err);
-      console.log(err.statusText);
-    });
+      },
+        err => {
+          console.log(err);
+          console.log(err.statusText);
+        });
 
     await this.route.navigateByUrl('/card-list');
 

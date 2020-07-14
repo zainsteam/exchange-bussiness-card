@@ -48,7 +48,7 @@ export class CardListPage implements OnInit {
 
   viewCard(id){
     console.log(id);
-    this.navCtrl.navigateForward(['card-view'],true, id);
+    this.navCtrl.navigateForward(['card-view/']+id);
     // this.route.navigate(['view-card',{id:id}])
 
 
@@ -71,6 +71,7 @@ export class CardListPage implements OnInit {
   editCard(cardId) {
     console.log("editCard run");
     console.log("cardId ", cardId);
+    this.navCtrl.navigateForward(['edit-card/']+cardId);
   }
 
 }

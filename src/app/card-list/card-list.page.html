@@ -9,17 +9,17 @@
 
 <ion-content>
   <ion-list *ngFor="let item of cards">
-    <ion-item (click)="viewCard(item._id)">
+    <ion-item >
       <ion-label class="ion-text-wrap">
         <ion-text color="primary">
-          <h3>{{item.card.name}}</h3>
+          <h3 (click)="viewCard(item._id)">{{item.card.name}}</h3>
         </ion-text>
         <p>{{item.card.surname}}</p>
         <ion-text color="secondary">
           <p>{{item.card.Workplace}}</p>
         </ion-text>
       </ion-label>
-      <ion-button fill="outline" slot="end" (click)="editCard(item._id)">Edit</ion-button>
+      <ion-button fill="outline" slot="end" (click)="editCard(item)">Edit</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

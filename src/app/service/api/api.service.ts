@@ -33,4 +33,33 @@ export class ApiService {
     return this.http.post(BASE_SERVER+'/getAllUserCards', data)
     .pipe(map(res => res));
   }
+
+  getCard(Id){
+
+    var data = {
+      cardId: Id
+    };
+    return this.http.post(BASE_SERVER+'/getCardById', data)
+    .pipe(map(res => res));
+  }
+
+  
+  genCode(Id){
+
+    var data = {
+      cardId: Id
+    };
+    return this.http.post(BASE_SERVER+'/generateCode', data)
+    .pipe(map(res => res));
+  }
+
+  cardAddbyCode(code,id){
+    var data = {
+      cardCode : code,
+      userId : id
+    };
+    return this.http.post(BASE_SERVER+'/getCardbyCode', data)
+    .pipe(map(res => res));
+  }
+
 }

@@ -32,9 +32,14 @@ const routes: Routes = [
     loadChildren: () => import('./add-manual-card/add-manual-card.module').then( m => m.AddManualCardPageModule)
   },
   {
-    path: 'card-view',
+    path: 'card-view/:id',
     loadChildren: () => import('./card-view/card-view.module').then( m => m.CardViewPageModule)
+  },
+  {
+    path: 'edit-card/:id',
+    loadChildren: () => import('./edit-card/edit-card.module').then( m => m.EditCardPageModule)
   }
+
 
 ];
 

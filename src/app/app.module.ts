@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Contacts } from '@ionic-native/contacts';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     SplashScreen,
     ApiService,
     BarcodeScanner,
+    Contacts,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
