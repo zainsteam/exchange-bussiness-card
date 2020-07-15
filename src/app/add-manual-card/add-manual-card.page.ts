@@ -3,8 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
-import { Contacts} from '@ionic-native/contacts';
-import { Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+// import { Contacts} from '@ionic-native/contacts';
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -44,13 +44,22 @@ export class AddManualCardPage implements OnInit {
   }
 
   saveContact() {
-    let contact: Contact = this.contacts.create();
+    // let contact: Contact = this.contacts.create();
 
-    contact.name = new ContactName(null, 'Smith', 'John');
-    contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
-    contact.save().then(
-      async() => await console.log('Contact saved!', contact));
+    // contact.name = new ContactName(null, 'Smith', 'John');
+    // contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+    // contact.save().then(
+    //   async() => await console.log('Contact saved!', contact));
     
+
+      let contact: Contact = this.contacts.create();
+
+      contact.name = new ContactName(null, 'Smith', 'John');
+      contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+      contact.save().then(
+        () => console.log('Contact saved!', contact),
+        (error: any) => console.error('Error saving contact.', error)
+      );
   }
 
   ngOnInit() {
