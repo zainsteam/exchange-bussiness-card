@@ -39,29 +39,37 @@ export class AddCardPage implements OnInit {
 
   QRscan() {
     console.log("QR code scanning");
-
+    let id = this.userId;
+    var flag = false;
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      this.code = barcodeData.text;
+      this.api(this.code,id);
+    
     }).catch(err => {
       console.log('Error', err);
     });
-
   }
 
-  handleFirstNameValue(input) {
-    this.code = input;
-    let id = this.userId;
-    if (this.code.length == 4) {
-      this.apiService.cardAddbyCode(input,id)
+  api(input, id){
+
+    this.apiService.cardAddbyCode(input,id)
       .subscribe((data: any) => //Start Service
       {
-        console.log(data);
+        console.log('data',data);
         
       },
         err => {
-          console.log(err);
-          console.log(err.statusText);
+          console.log('error 1',err);
+          console.log('error 2',err.statusText);
         });
+
+  }
+
+  codefun(input) {
+    this.code = input;
+    let id = this.userId;
+    if (this.code.length == 4) {
+      this.api(input,id);
     }
   }
 

@@ -54,7 +54,7 @@ export class AddManualCardPage implements OnInit {
 
       let contact: Contact = this.contacts.create();
 
-      contact.name = new ContactName(null, 'Smith', 'John');
+      contact.name = new ContactName(null, 'Smith hhhh', 'John');
       contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
       contact.save().then(
         () => console.log('Contact saved!', contact),
