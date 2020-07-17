@@ -10,8 +10,15 @@
   <p>{{card.cellNo}}</p>
   <p>{{card.name}}</p>
   <p>{{card.surname}}</p>
-  <ion-button expand="block" type="button" (click)="gencode(cardid)">Generate Code / QRcode  </ion-button>
+
   <ion-item *ngIf="code">
     <p>{{code}}</p>
   </ion-item>
+  <ion-row style="justify-content: center;margin-top: 5%;">
+    <ion-button class="custom-buttom" type="button" shape="round" (click)="Download()">
+      Download
+    </ion-button>
+    <ion-button expand="block" type="button" (click)="gencode(cardid)" shape="round">Generate Code / QRcode  </ion-button>
+  </ion-row>
+
 </ion-content>

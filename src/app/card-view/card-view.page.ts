@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api/api.service';
+import { BarcodeScanner,BarcodeScannerOptions, } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-card-view',
@@ -15,8 +16,12 @@ export class CardViewPage implements OnInit {
   cardid : any;
   public card : any[] ;
   code : any ;
+  encodeData: any;
+  // scannedData: {};
+  barcodeScannerOptions: BarcodeScannerOptions;
 
   constructor(private route: ActivatedRoute,
+      private barcodeScanner: BarcodeScanner,
     public apiService: ApiService) { }
 
 
@@ -50,6 +55,7 @@ export class CardViewPage implements OnInit {
     .subscribe((data:any) => //Start Service
     {
       this.code = data['card'].code;
+      this.encodedText(this.code);
       console.log(this.code);
     },
     err => {
@@ -57,8 +63,25 @@ export class CardViewPage implements OnInit {
       console.log(err.statusText);
     });
 
+
   }
 
+    encodedText(code) {
+      this.encodeData =code;
 
+    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData)
+      .then(
+        encodedData => {
+          console.log(encodedData);
+        },
+        err => {
+          console.log("Error occured : " + err);
+        }
+      );
+  }
+
+  Download(){
+    
+  }
 
 }

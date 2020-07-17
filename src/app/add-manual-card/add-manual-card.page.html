@@ -11,32 +11,21 @@
 
 <ion-content>
   <form [formGroup]="cardAddForm" (ngSubmit)="cardAdd()">
-    <ion-list class="ion-margin-horizontal">
+    <ion-list class="ion-margin-horizontal" no-margin>
 
-      <ion-item class="listItem">
-        <ion-label position="stacked" class="listLabel">Name</ion-label>
-        <ion-input type="text" formControlName="name" value="" class="listInput"></ion-input>
-      </ion-item>
+      <!-- <ion-item class="listItem" no-lines >
+        <ion-label position="stacked" class="listLabel" style="">Name</ion-label> -->
+        <ion-input type="text" placeholder="Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" formControlName="name" value="" class="listInput"></ion-input>
+      <!-- </ion-item> -->
 
-      <ion-item class="listItem">
-        <ion-label position="stacked" class="listLabel">Surname</ion-label>
-        <ion-input type="text" formControlName="surname" value="" class="listInput"></ion-input>
-      </ion-item>
 
-      <ion-item class="listItem">
-        <ion-label position="stacked" class="listLabel">Workplace</ion-label>
-        <ion-input type="text" formControlName="workplace" value="" class="listInput"></ion-input>
-      </ion-item>
+        <ion-input type="text" placeholder="Surname" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="surname" value="" class="listInput"></ion-input>
+     
+        <ion-input type="text" placeholder="Workplace" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="workplace" value="" class="listInput"></ion-input>
 
-      <ion-item class="listItem">
-        <ion-label position="stacked" class="listLabel">Email</ion-label>
-        <ion-input type="email" formControlName="email" value="" class="listInput"></ion-input>
-      </ion-item>
+        <ion-input type="email" placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="email" value="" class="listInput"></ion-input>
 
-      <ion-item class="listItem">
-        <ion-label position="stacked" class="listLabel">Cell No</ion-label>
-        <ion-input type="tel" formControlName="cellNo" class="listInput"></ion-input>
-      </ion-item>
+        <ion-input type="number" placeholder="Cell no" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="cellNo" class="listInput"></ion-input>
 
     </ion-list>
    

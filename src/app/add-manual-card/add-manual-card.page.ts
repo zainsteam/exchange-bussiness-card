@@ -66,7 +66,6 @@ export class AddManualCardPage implements OnInit {
   }
 
   cerrar() {
-    this.saveContact();
 
     this.modalCtrl.dismiss();
   }
@@ -89,7 +88,7 @@ export class AddManualCardPage implements OnInit {
       .subscribe((data: any) => //Start Service
       {
         console.log(data);
-        
+        this.saveContact();
         this.cerrar();
 
       },

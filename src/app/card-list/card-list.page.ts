@@ -50,6 +50,7 @@ export class CardListPage implements OnInit {
     console.log(id);
     this.navCtrl.navigateForward(['card-view/']+id);
     // this.route.navigate(['view-card',{id:id}])
+    // this.navCtrl.back();
 
 
   }
