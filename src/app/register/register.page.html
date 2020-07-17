@@ -11,20 +11,14 @@
   <form class="ion-margin-horizontal" [formGroup]="registerForm" (ngSubmit)="registerUser()">
       
     <ion-list style="margin-top: 15%;">
-      <ion-item>
-        <ion-label position="stacked" color="dark" class="lableFont">First Name</ion-label>
-        <ion-input type="text" formControlName="firstName"></ion-input>
-      </ion-item>
+        <!-- <ion-label position="stacked" color="dark" class="lableFont">First Name</ion-label> -->
+        <ion-input placeholder="First Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="text" formControlName="firstName"></ion-input>
             
-      <ion-item>
-        <ion-label position="stacked" color="dark" class="lableFont">Last Name</ion-label>
-        <ion-input type="text" formControlName="lastName"></ion-input>
-      </ion-item>
+        <!-- <ion-label position="stacked" color="dark" class="lableFont">Last Name</ion-label> -->
+        <ion-input placeholder="Last Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="text" formControlName="lastName"></ion-input>
 
-      <ion-item>
-        <ion-label position="stacked" color="dark" class="lableFont">E-Mail*</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
+        <!-- <ion-label position="stacked" color="dark" class="lableFont">E-Mail*</ion-label> -->
+        <ion-input placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="email" formControlName="email"></ion-input>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.email">
           <div *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
@@ -33,10 +27,8 @@
         </ng-container>
       </div>
 
-      <ion-item>
-        <ion-label position="stacked" color="dark" class="lableFont">Password*</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
+        <!-- <ion-label position="stacked" color="dark" class="lableFont">Password*</ion-label> -->
+        <ion-input placeholder="Password" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="password" formControlName="password"></ion-input>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.password">
           <div *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
@@ -47,7 +39,7 @@
 
     </ion-list>
       
-    <ion-row style="justify-content: center;margin-top: 10%;">
+    <ion-row style="justify-content: center;margin-top:3%;">
       <ion-button class="login-btn" type="submit" shape="round" [disabled]="!registerForm.valid">
         REGISTER
       </ion-button>
@@ -57,6 +49,6 @@
     <label class="success-message">{{successMessage}}</label>
 
   </form>
-  <p (click)="gotologin()">Already Regerter,<a> Login Here</a></p>
+  <p  style="text-align: center;" (click)="gotologin()">Already Regerter,<a> Login Here</a></p>
 
 </ion-content>

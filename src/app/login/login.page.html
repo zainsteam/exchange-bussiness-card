@@ -10,10 +10,8 @@
 <ion-content>
   <form class="ion-margin-horizontal" [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <ion-list>
-    <ion-item>
-      <ion-label position="stacked" color="dark" class="lableFont">E-Mail*</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
-    </ion-item>
+      <!-- <ion-label position="stacked" color="dark" class="lableFont">E-Mail*</ion-label> -->
+      <ion-input placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="email" formControlName="email"></ion-input>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.email">
         <div *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
@@ -22,10 +20,8 @@
       </ng-container>
     </div>
 
-      <ion-item>
-        <ion-label position="stacked" color="dark" class="lableFont">Password*</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
+        <!-- <ion-label position="stacked" color="dark" class="lableFont">Password*</ion-label> -->
+        <ion-input placeholder="Password" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" type="password" formControlName="password"></ion-input>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.password">
           <div *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
@@ -36,8 +32,8 @@
 
     </ion-list>
 
-    <a class="forget-pwd" routerLink="/forget-password" router-direction="forward">Forgot your password?</a>
-    <ion-row style="justify-content: center;margin-top: 10%;">
+    <!-- <a class="forget-pwd" routerLink="/forget-password" router-direction="forward">Forgot your password?</a> -->
+    <ion-row style="justify-content: center;margin-top: 3%;">
       <ion-button class="login-btn" type="submit" shape="round" [disabled]="!loginForm.valid">
         LOGIN
       </ion-button>
@@ -46,5 +42,5 @@
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
-  <p (click)="gotoregister()">Make an Account</p>
+  <p  style="text-align: center;" (click)="gotoregister()">Make an Account <a>Registered here</a></p>
 </ion-content>
