@@ -38,8 +38,11 @@ const routes: Routes = [
   {
     path: 'edit-card/:id',
     loadChildren: () => import('./edit-card/edit-card.module').then( m => m.EditCardPageModule)
+  },
+  {
+    path: 'card-download/:id',
+    loadChildren: () => import('./card-download/card-download.module').then( m => m.CardDownloadPageModule)
   }
-
 
 ];
 

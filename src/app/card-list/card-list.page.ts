@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-
+import { ModalController } from '@ionic/angular';
+import { EditCardPage } from '../edit-card/edit-card.page'
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.page.html',
@@ -15,7 +16,8 @@ export class CardListPage implements OnInit {
 
   constructor(public apiService: ApiService,
     private route: Router,
-    public navCtrl: NavController) { 
+    public modalCtrl: ModalController,
+    public navCtrl: NavController    ) { 
   //   this.cardname = [{
   //     name : "zain",
   //    number : "03122880329",
@@ -44,6 +46,7 @@ export class CardListPage implements OnInit {
 
   ngOnInit() {
     this.getCards();
+
   }
 
   viewCard(id){
@@ -69,10 +72,23 @@ export class CardListPage implements OnInit {
     });
   }
 
-  editCard(cardId) {
-    console.log("editCard run");
-    console.log("cardId ", cardId);
-    this.navCtrl.navigateForward(['edit-card/']+cardId);
+  // editCard(cardId) {
+  //   console.log("editCard run");
+  //   console.log("cardId ", cardId);
+  //   this.navCtrl.navigateForward(['edit-card/']+cardId);
+  // }
+
+  async presentModal(id) {
+    const modal = await this.modalCtrl.create({
+
+      component: EditCardPage,
+      cssClass: 'my-custom-class',
+      componentProps: { 
+        id: id
+      }
+
+    });
+    return await modal.present();
   }
 
 }

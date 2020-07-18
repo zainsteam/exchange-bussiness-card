@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
 // import { Contacts} from '@ionic-native/contacts';
-import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+import { Contacts, Contact, ContactField, ContactName, ContactAddress } from '@ionic-native/contacts/ngx';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -21,12 +21,13 @@ export class AddManualCardPage implements OnInit {
   errorMessage: string = '';
   successMessage: string = '';
   loading;
+  card;
 
   constructor(public modalCtrl: ModalController,
     public apiService: ApiService,
     public formBuilder: FormBuilder,
     private route: Router,
-    private contacts: Contacts
+    private contacts: Contacts,
   ) {
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log('user', this.user);
@@ -43,19 +44,25 @@ export class AddManualCardPage implements OnInit {
     });
   }
 
-  saveContact() {
+ 
+
+  saveContact(card) {
     // let contact: Contact = this.contacts.create();
 
     // contact.name = new ContactName(null, 'Smith', 'John');
     // contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
     // contact.save().then(
     //   async() => await console.log('Contact saved!', contact));
+    console.log('save card',card);
     
 
       let contact: Contact = this.contacts.create();
 
-      contact.name = new ContactName(null, 'Smith hhhh', 'John');
-      contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+      contact.name = new ContactName(null, card['card'].name, card['card'].surname);
+      contact.phoneNumbers = [new ContactField('mobile', card['card'].cellNo)];
+      contact.emails = [new ContactField('emails', card['card'].email)];
+      contact.addresses = [new ContactAddress(true,'work',card['card'].Workplace)];
+
       contact.save().then(
         () => console.log('Contact saved!', contact),
         (error: any) => console.error('Error saving contact.', error)
@@ -88,7 +95,7 @@ export class AddManualCardPage implements OnInit {
       .subscribe((data: any) => //Start Service
       {
         console.log(data);
-        this.saveContact();
+        this.saveContact(data);
         this.cerrar();
 
       },

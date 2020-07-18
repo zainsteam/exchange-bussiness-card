@@ -1,21 +1,20 @@
-<ion-header>
+<ion-header *ngIf="!download">
   <ion-toolbar>
     <ion-title>CardView</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="card">
-   <p>{{card.QRCode}}</p>
-  <p>{{card.Workplace}}</p>
-  <p>{{card.cellNo}}</p>
-  <p>{{card.name}}</p>
-  <p>{{card.surname}}</p>
+   <!-- <p>{{card.QRCode}}</p> -->
+   <p><b>Full Name: </b>{{card.name}} {{card.surname}}</p>
+   <p><b>CellNo: </b>{{card.cellNo}}</p>
+  <p><b>Workplace: </b>{{card.Workplace}}</p>
 
-  <ion-item *ngIf="code">
+  <!-- <ion-item *ngIf="code">
     <p>{{code}}</p>
-  </ion-item>
-  <ion-row style="justify-content: center;margin-top: 5%;">
-    <ion-button class="custom-buttom" type="button" shape="round" (click)="Download()">
+  </ion-item> -->
+  <ion-row style="justify-content: center;margin-top: 5%;" *ngIf="!download">
+    <ion-button class="custom-buttom" type="button" shape="round" (click)="gotoDownload(card)">
       Download
     </ion-button>
     <ion-button expand="block" type="button" (click)="gencode(cardid)" shape="round">Generate Code / QRcode  </ion-button>

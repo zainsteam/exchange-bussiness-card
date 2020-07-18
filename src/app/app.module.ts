@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 // import { Contacts } from '@ionic-native/contacts';
 import { Contacts } from '@ionic-native/contacts/ngx';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { Contacts } from '@ionic-native/contacts/ngx';
     StatusBar,
     SplashScreen,
     ApiService,
+    Screenshot,
     BarcodeScanner,
     Contacts,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

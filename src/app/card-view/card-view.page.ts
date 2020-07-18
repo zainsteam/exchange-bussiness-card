@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api/api.service';
 import { BarcodeScanner,BarcodeScannerOptions, } from '@ionic-native/barcode-scanner/ngx';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-card-view',
@@ -18,11 +20,15 @@ export class CardViewPage implements OnInit {
   code : any ;
   encodeData: any;
   // scannedData: {};
+  screen: any;
+  state: boolean = false;
   barcodeScannerOptions: BarcodeScannerOptions;
 
   constructor(private route: ActivatedRoute,
       private barcodeScanner: BarcodeScanner,
-    public apiService: ApiService) { }
+      private screenshot: Screenshot,
+    public apiService: ApiService,
+    public navCtrl: NavController) { }
 
 
   ngOnInit() {
@@ -79,9 +85,39 @@ export class CardViewPage implements OnInit {
         }
       );
   }
+  download:boolean = false;
 
-  Download(){
-    
+  // Download(){
+  //   this.download = true;
+  //    setTimeout(function(){ 
+  //     // self.state = false;
+  //     alert('console.log');
+  //     // this.download = false;
+  //     this.save();
+  //   }, 3000);
+
+  // }
+
+  gotoDownload(){
+    // console.log(this.cardid);
+    this.navCtrl.navigateForward(['card-download/']+this.cardid);
+
+
+  }
+  save(){
+    this.screenshot.save('jpg', 80, this.cardid).then(res => {
+      this.screen = res.filePath;
+      this.state = true;
+      this.reset();
+    });
+  }
+
+  reset() {
+    var self = this;
+    setTimeout(function(){ 
+      self.state = false;
+      this.download = false;
+    }, 1000);
   }
 
 }

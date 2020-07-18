@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>EditCard</ion-title>
+    <ion-title>Edit Card</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons fill="clear" style="font-size: 12px;padding-left: 5px;" (click)="cerrar()" >
+        <ion-icon slot="icon-only" name="close" style="margin-right: 8px;font-size: 23px"></ion-icon>
+     </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<form [formGroup]="cardEditForm" (ngSubmit)="cardAdd()">
+  <!--     
+    <ion-list class="ion-margin-horizontal" no-margin>
+
+      <ion-item class="listItem" no-lines >
+        <ion-label position="stacked" class="listLabel" style="">Name</ion-label>
+        <ion-input type="text" placeholder="Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" formControlName="name" value="" class="listInput"></ion-input>
+      </ion-item> 
+
+
+        <ion-input type="text" placeholder="Surname" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="surname" value="" class="listInput"></ion-input>
+     
+        <ion-input type="text" placeholder="Workplace" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="workplace" value="" class="listInput"></ion-input>
+
+        <ion-input type="email" placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="email" value="" class="listInput"></ion-input>
+
+        <ion-input type="number" placeholder="Cell no" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="cellNo" class="listInput"></ion-input>
+
+    </ion-list>
+  -->
+   
+    <ion-row style="justify-content: center;margin-top: 5%;">
+      <ion-button class="custom-buttom" type="submit" shape="round" [disabled]="!cardAddForm.valid">
+        UPDATE CARD
+      </ion-button>
+    </ion-row>
+  </form> 
 
 </ion-content>
