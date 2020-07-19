@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../service/api/api.service';
 import { Router ,ActivatedRoute} from '@angular/router';
 // import { Contacts} from '@ionic-native/contacts';
-import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+import { Contacts, Contact, ContactField, ContactName, ContactAddress } from '@ionic-native/contacts/ngx';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -24,8 +24,7 @@ export class EditCardPage implements OnInit {
   id: any;
   cardid : any;
   public card : any[] ;
-  foo;
-  bar;
+
   constructor(public apiService: ApiService,
     public formBuilder: FormBuilder,
     private route: Router,
@@ -40,13 +39,6 @@ export class EditCardPage implements OnInit {
     this.userId = JSON.parse(localStorage.getItem('userId'));
     console.log('userId', this.userId);
 
-    this.cardEditForm = formBuilder.group({
-      name: ['', Validators.compose([Validators.required])],
-      surname: ['', Validators.compose([Validators.required])],
-      workplace: ['', Validators.compose([Validators.required])],
-      email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
-      cellNo: ['']
-    });
   }
 
   ngOnInit() {
@@ -58,9 +50,7 @@ export class EditCardPage implements OnInit {
     console.log(id);
     this.viewCard(id);
   }
-  cardAdd(){
-
-  }
+  
 
   viewCard(ids) {
     console.log(ids);
@@ -79,8 +69,62 @@ export class EditCardPage implements OnInit {
   }
 
   cerrar() {
-
     this.modalCtrl.dismiss();
+  }
+
+  async saveContact(cards) {
+    // let contact: Contact = this.contacts.create();
+
+    // contact.name = new ContactName(null, 'Smith', 'John');
+    // contact.phoneNumbers = [new ContactField('mobile', '6471234567')];
+    // contact.save().then(
+    //   async() => await console.log('Contact saved!', contact));
+    console.log('save card',cards);
+    
+
+      let contact: Contact = this.contacts.create();
+
+      contact.name = new ContactName(null, cards.name, cards.surname);
+      contact.phoneNumbers = [new ContactField('mobile', cards.cellNo)];
+      contact.emails = [new ContactField('emails', cards.email)];
+      contact.addresses = [new ContactAddress(true,'work',cards.Workplace)];
+
+     await contact.save().then(
+        () => console.log('Contact saved!', contact),
+        (error: any) => console.error('Error saving contact.', error)
+      );
+  }
+
+  update(){
+    // console.log(this.card['name']);
+    if(this.card['name'] == "" || this.card['surname'] == "" || this.card['Workplace'] == "" || this.card['name'] == undefined || this.card['surname'] == undefined || this.card['Workplace'] == undefined ){
+      console.log("something is missing");
+    }
+    else {
+      let data = {
+        cardId: this.cardid,
+          name: this.card['name'],
+          surname: this.card['surname'],
+          email: this.card['email'],
+          cellNo: this.card['cellNo'],
+          Workplace: this.card['Workplace']
+      }
+      this.apiService.cardupdate(data)
+      .subscribe((data: any) => //Start Service
+      {
+        console.log(data);
+        this.saveContact(data);
+        this.cerrar();
+
+      },
+        err => {
+          console.log(err);
+          console.log(err.statusText);
+        });
+
+    //  this.route.navigateByUrl('/card-list');
+
+    }
   }
 
 }

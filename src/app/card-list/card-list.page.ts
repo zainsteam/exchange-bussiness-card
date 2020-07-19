@@ -88,6 +88,11 @@ export class CardListPage implements OnInit {
       }
 
     });
+    modal.onDidDismiss()
+      .then( (data) => {
+        this.ngOnInit();
+        console.log("hello again")
+    });
     return await modal.present();
   }
 

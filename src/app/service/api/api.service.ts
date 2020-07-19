@@ -25,6 +25,11 @@ export class ApiService {
     .pipe(map(res => res));
   }
 
+  cardupdate(data){
+    return this.http.post(BASE_SERVER+'/updateCard', data)
+    .pipe(map(res => res));
+  }
+
   getCards(userId){
 
     var data = {

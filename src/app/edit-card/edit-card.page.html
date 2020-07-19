@@ -10,32 +10,24 @@
 </ion-header>
 
 <ion-content>
-<form [formGroup]="cardEditForm" (ngSubmit)="cardAdd()">
-  <!--     
     <ion-list class="ion-margin-horizontal" no-margin>
 
-      <ion-item class="listItem" no-lines >
-        <ion-label position="stacked" class="listLabel" style="">Name</ion-label>
-        <ion-input type="text" placeholder="Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" formControlName="name" value="" class="listInput"></ion-input>
-      </ion-item> 
+        <ion-input [(ngModel)]="card.name" type="text"  placeholder="Name" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" value="" class="listInput" ></ion-input>
 
-
-        <ion-input type="text" placeholder="Surname" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="surname" value="" class="listInput"></ion-input>
+        <ion-input [(ngModel)]="card.surname" type="text" placeholder="Surname" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"   value="" class="listInput"></ion-input>
      
-        <ion-input type="text" placeholder="Workplace" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="workplace" value="" class="listInput"></ion-input>
+        <ion-input [(ngModel)]="card.Workplace" type="text" placeholder="Workplace" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;" value="" class="listInput"></ion-input>
 
-        <ion-input type="email" placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="email" value="" class="listInput"></ion-input>
+        <ion-input [(ngModel)]="card.email" type="email" placeholder="Email" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"   value="" class="listInput"></ion-input>
 
-        <ion-input type="number" placeholder="Cell no" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="cellNo" class="listInput"></ion-input>
+        <ion-input [(ngModel)]="card.cellNo" type="number" placeholder="Cell no" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"   class="listInput"></ion-input>
 
     </ion-list>
-  -->
-   
+
     <ion-row style="justify-content: center;margin-top: 5%;">
-      <ion-button class="custom-buttom" type="submit" shape="round" [disabled]="!cardAddForm.valid">
+      <ion-button class="custom-buttom" type="submit" shape="round"  (click)="update()">
         UPDATE CARD
       </ion-button>
     </ion-row>
-  </form> 
 
 </ion-content>

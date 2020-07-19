@@ -1,21 +1,31 @@
 <ion-header *ngIf="!download">
   <ion-toolbar>
-    <ion-title>CardView</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Card</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="card">
-   <!-- <p>{{card.QRCode}}</p> -->
-   <p><b>Full Name: </b>{{card.name}} {{card.surname}}</p>
-   <p><b>CellNo: </b>{{card.cellNo}}</p>
-  <p><b>Workplace: </b>{{card.Workplace}}</p>
+<ion-content *ngIf="card" class="card-background-page">
+  <!-- <p>card downloading</p>
+  <p><b>Full Name: </b></p>
+  <p><b>CellNo: </b>{{card.cellNo}}</p>
+ <p><b>Workplace: </b></p> -->
+ 
+ <ion-card>
+  <img src="../../assets/img/cardimage.jpg  "  style="max-width: none;"/>
+  <div class="card-title" style="margin: 2% 0 ;"><b>Name: </b>{{card.name}} {{card.surname}}</div>
+  <div class="card-subtitle2" style="margin: 2% 0 ;"><b>Workplace: </b>{{card.Workplace}}</div>
+  <div class="card-subtitle" style="margin: 2% 0 ;"><b>Mobile no: </b>{{card.cellNo}}</div>
+</ion-card>
 
   <!-- <ion-item *ngIf="code">
     <p>{{code}}</p>
   </ion-item> -->
   <ion-row style="justify-content: center;margin-top: 5%;" *ngIf="!download">
     <ion-button class="custom-buttom" type="button" shape="round" (click)="gotoDownload(card)">
-      Download
+      View Full Card
     </ion-button>
     <ion-button expand="block" type="button" (click)="gencode(cardid)" shape="round">Generate Code / QRcode  </ion-button>
   </ion-row>

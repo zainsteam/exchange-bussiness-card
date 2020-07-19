@@ -104,20 +104,5 @@ export class CardViewPage implements OnInit {
 
 
   }
-  save(){
-    this.screenshot.save('jpg', 80, this.cardid).then(res => {
-      this.screen = res.filePath;
-      this.state = true;
-      this.reset();
-    });
-  }
-
-  reset() {
-    var self = this;
-    setTimeout(function(){ 
-      self.state = false;
-      this.download = false;
-    }, 1000);
-  }
 
 }
