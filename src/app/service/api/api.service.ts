@@ -77,4 +77,10 @@ export class ApiService {
     .pipe(map(res => res));
   }
 
+  addMobileToken(data)
+  {
+    return this.http.post(BASE_SERVER+'/updateUdid', data)
+    .pipe(map(res => res));
+  }
+
 }
