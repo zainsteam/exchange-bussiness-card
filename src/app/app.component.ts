@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform,NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { menuController } from "@ionic/core";
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +25,12 @@ export class AppComponent implements OnInit {
     {
       title: 'Bussiness Card List',
       url: '/card-list',
-      icon: 'paper-plane'
+      icon: 'card'
     },
     {
       title: 'Add Bussiness Card',
       url: '/add-card',
-      icon: 'heart'
+      icon: 'add-circle'
     }
     // {
     //   title: 'Log In',
@@ -46,7 +48,10 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private route: Router
+    private route: Router,
+    private toast: Toast,
+    private navCtrl: NavController,
+
   ) {
     this.initializeApp();
 
@@ -80,7 +85,14 @@ export class AppComponent implements OnInit {
   logout()
   {
     console.log("logout");
+    menuController.toggle();
     localStorage.clear();
-    this.route.navigateByUrl('/');
+    this.toast.show(`Logout `, '5000', 'bottom').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+    this.navCtrl.navigateRoot('/login')
+    // this.route.navigateByUrl('/');
   }
 }

@@ -6,6 +6,7 @@ import { Router ,ActivatedRoute} from '@angular/router';
 // import { Contacts} from '@ionic-native/contacts';
 import { Contacts, Contact, ContactField, ContactName, ContactAddress } from '@ionic-native/contacts/ngx';
 import { async } from '@angular/core/testing';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-edit-card',
@@ -31,6 +32,7 @@ export class EditCardPage implements OnInit {
     private router: ActivatedRoute,
     public modalCtrl: ModalController,
     private contacts: Contacts,
+    private toast: Toast,
     public navParams: NavParams) { 
      
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -113,6 +115,11 @@ export class EditCardPage implements OnInit {
       .subscribe((data: any) => //Start Service
       {
         console.log(data);
+        this.toast.show('Card Updated', '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
         this.saveContact(data);
         this.cerrar();
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -13,6 +13,7 @@ export class CardListPage implements OnInit {
 
   userId;
   public cards : any[] ;
+  public yourcards : any[] ;
 
   constructor(public apiService: ApiService,
     private route: Router,
@@ -65,12 +66,31 @@ export class CardListPage implements OnInit {
     {
       console.log(data);
       this.cards = data;
+      this.getSharedCard();
     },
     err => {
       console.log(err);
       console.log(err.statusText);
     });
   }
+  async getSharedCard(){
+    await this.apiService.getSharedCards(this.userId)
+    .subscribe((data:any) => //Start Service
+    {
+      console.log('shared',data);
+      this.yourcards = data;
+      // for(var i = 0 ; i < data.length; i++){
+      //   console.log('asdasd');
+      //   this.cards.push(data[i]);
+      // }
+    },
+    err => {
+      console.log(err);
+      console.log(err.statusText);
+    });
+    console.log('after',this.cards);
+  }
+  
 
   // editCard(cardId) {
   //   console.log("editCard run");

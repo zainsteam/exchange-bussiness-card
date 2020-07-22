@@ -39,6 +39,16 @@ export class ApiService {
     .pipe(map(res => res));
   }
 
+  getSharedCards(userId){
+
+    var data = {
+      userId: userId
+    };
+    return this.http.post(BASE_SERVER+'/getSharedUserCards', data)
+    .pipe(map(res => res));
+  }
+
+
   getCard(Id){
 
     var data = {

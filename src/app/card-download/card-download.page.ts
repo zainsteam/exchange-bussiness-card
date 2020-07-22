@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api/api.service';
 import { Screenshot } from '@ionic-native/screenshot/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-card-download',
@@ -19,6 +20,8 @@ export class CardDownloadPage implements OnInit {
   constructor(private route: ActivatedRoute,
     public apiService: ApiService,
     private platform: Platform,
+    private toast: Toast,
+    public navCtrl: NavController,
     private screenshot: Screenshot) { 
    
   }
@@ -63,6 +66,12 @@ export class CardDownloadPage implements OnInit {
     this.screenshot.save('jpg', 80, this.cardid).then(res => {
       this.screen = res.filePath;
       this.state = true;
+      this.toast.show('Card Save', '5000', 'bottom').subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
+      this.navCtrl.navigateForward(['card-list/']);
       this.reset();
     });
   }

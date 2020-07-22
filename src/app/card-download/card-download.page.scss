@@ -36,6 +36,15 @@
     }
 
     .card-subtitle3 {
+      font-size: 1.0em;
+      position: absolute;
+      top: 42%;
+      right: 5%;
+      // width: 100%;
+      color: #000;
+    }
+
+    .card-subtitle4 {
       font-size: 2.5em;
       position: absolute;
       top: 72%;
@@ -43,5 +52,6 @@
       // width: 100%;
       color: #000;
     }
+
 
 }

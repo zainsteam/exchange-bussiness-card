@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { ApiService } from '../service/api/api.service';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-register',
@@ -28,6 +29,7 @@ export class RegisterPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder,
     private navCtrl: NavController,
+    private toast: Toast,
     public apiService: ApiService) {
       this.registerForm = formBuilder.group({
         firstName: [''],
@@ -63,10 +65,20 @@ export class RegisterPage implements OnInit {
       console.log(data);
       if (data.success) {
         console.log(data.user);
+        this.toast.show(`Successfully Register`, '5000', 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
         this.navCtrl.navigateForward(['/card-list']);
       }
       else {
         console.log('Error  ',data.message);
+        this.toast.show(data.message, '5000', 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
       }
     },
     err => {

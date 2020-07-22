@@ -8,6 +8,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-item-group>
+  <ion-item-divider>
+    <ion-label>
+      Your cards
+    </ion-label>
+  </ion-item-divider>
+  <ion-label *ngIf="!cards" style="text-align: center;">----   no cards added   ----</ion-label>
   <ion-list *ngFor="let item of cards">
     <ion-item lines="none" style="border-bottom: 1px solid #dbdada;">
       <ion-label class="ion-text-wrap" (click)="viewCard(item._id)">
@@ -22,4 +29,26 @@
       <ion-button fill="outline" slot="end" (click)="presentModal(item._id)">Edit</ion-button>
     </ion-item>
   </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+  <ion-item-divider>
+    <ion-label>
+      Your Shared cards
+    </ion-label>
+  </ion-item-divider>
+  <ion-label *ngIf="!yourcards" style="text-align: center;">----   no cards added   ----</ion-label>
+  <ion-list *ngFor="let item of yourcards">
+    <ion-item lines="none" style="border-bottom: 1px solid #dbdada;">
+      <ion-label class="ion-text-wrap" (click)="viewCard(item._id)">
+        <ion-text color="primary">
+          <h1  style="font-size: 20px;"><b>Full Name : </b> {{item.card.name}} {{item.card.surname}}</h1>
+        </ion-text>
+        <!-- <p>{{item.card.cellNo}}</p> -->
+        <ion-text color="secondary">
+          <p><b>Workplace : </b>{{item.card.Workplace}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  </ion-item-group>
 </ion-content>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { AddManualCardPage } from '../add-manual-card/add-manual-card.page';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ApiService } from '../service/api/api.service';
+import { Toast } from '@ionic-native/toast/ngx';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class AddCardPage implements OnInit {
   constructor(public modalController: ModalController,
     private barcodeScanner: BarcodeScanner,
     public apiService: ApiService,
+    private toast: Toast,
+    private navCtrl: NavController
     ) {
       this.userId = JSON.parse(localStorage.getItem('userId'));
       console.log('userId', this.userId);
@@ -56,10 +59,21 @@ export class AddCardPage implements OnInit {
       .subscribe((data: any) => //Start Service
       {
         console.log('data',data);
+        this.toast.show(`Card Successfully Added `, '5000', 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+        this.navCtrl.navigateRoot('/card-list');
         
       },
         err => {
           console.log('error 1',err);
+          this.toast.show(err.statusText, '5000', 'bottom').subscribe(
+            toast => {
+              console.log(toast);
+            }
+          );
           console.log('error 2',err.statusText);
         });
 

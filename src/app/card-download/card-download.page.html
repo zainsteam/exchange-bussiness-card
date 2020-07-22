@@ -4,12 +4,14 @@
   <p><b>CellNo: </b>{{card.cellNo}}</p>
  <p><b>Workplace: </b></p> -->
  
- <ion-card (click)="save()"  style="margin: 67% 0;">
+ <ion-card (click)="save()"  style="margin: 32vh 0;">
   <img src="../../assets/img/cardimage.jpg  "   style="max-width: none;"/>
   <div class="card-title">{{card.name}} {{card.surname}}</div>
-  <div class="card-subtitle2">{{card.Workplace}}</div>
-  <div class="card-subtitle">{{card.cellNo}}</div>
-  <div class="card-subtitle3">
+  <div class="card-subtitle2">{{card.email}}</div>
+  <div class="card-subtitle">{{card.Workplace}}</div>
+  <div class="card-subtitle3">{{card.cellNo}}</div>
+
+  <div class="card-subtitle4">
   <ion-icon name="arrow-down-circle-outline"></ion-icon>
   </div>
 </ion-card>

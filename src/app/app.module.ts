@@ -17,6 +17,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 // import { Contacts } from '@ionic-native/contacts';
 import { Contacts } from '@ionic-native/contacts/ngx';
 import { Screenshot } from '@ionic-native/screenshot/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { Screenshot } from '@ionic-native/screenshot/ngx';
     ApiService,
     Screenshot,
     BarcodeScanner,
+    Toast,
     Contacts,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

@@ -5,7 +5,7 @@ import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
 // import { Contacts} from '@ionic-native/contacts';
 import { Contacts, Contact, ContactField, ContactName, ContactAddress } from '@ionic-native/contacts/ngx';
-import { async } from '@angular/core/testing';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-add-manual-card',
@@ -27,6 +27,7 @@ export class AddManualCardPage implements OnInit {
     public apiService: ApiService,
     public formBuilder: FormBuilder,
     private route: Router,
+    private toast: Toast,
     private contacts: Contacts,
   ) {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -95,6 +96,11 @@ export class AddManualCardPage implements OnInit {
       .subscribe((data: any) => //Start Service
       {
         console.log(data);
+        this.toast.show(`Card Successfully Added `, '5000', 'bottom').subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
         this.saveContact(data);
         this.cerrar();
 
