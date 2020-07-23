@@ -1,0 +1,40 @@
+{
+    "project_info": {
+      "project_number": "68955262053",
+      "firebase_url": "https://cardserver-a776c.firebaseio.com",
+      "project_id": "cardserver-a776c",
+      "storage_bucket": "cardserver-a776c.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:68955262053:android:72645c2f3b16944db9ca8c",
+          "android_client_info": {
+            "package_name": "io.busniesscard.starter"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "68955262053-qi1p77ppgsa1ugvv56pduf8qjnkroigk.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyBTEoALO18RC_S-ZAFtQly4GpcJW2HavJY"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "68955262053-qi1p77ppgsa1ugvv56pduf8qjnkroigk.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

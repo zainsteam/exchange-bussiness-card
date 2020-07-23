@@ -70,7 +70,7 @@ export class RegisterPage implements OnInit {
             console.log(toast);
           }
         );
-        this.navCtrl.navigateForward(['/card-list']);
+        this.navCtrl.navigateForward(['/']);
       }
       else {
         console.log('Error  ',data.message);
