@@ -42,7 +42,12 @@ const routes: Routes = [
   {
     path: 'card-download/:id',
     loadChildren: () => import('./card-download/card-download.module').then( m => m.CardDownloadPageModule)
+  },
+  {
+    path: 'shared-card-view/:id',
+    loadChildren: () => import('./shared-card-view/shared-card-view.module').then( m => m.SharedCardViewPageModule)
   }
+
 
 ];
 

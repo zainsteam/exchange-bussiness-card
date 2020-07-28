@@ -39,7 +39,7 @@
   <ion-label *ngIf="!yourcards" style="text-align: center;">----   no cards added   ----</ion-label>
   <ion-list *ngFor="let item of yourcards">
     <ion-item lines="none" style="border-bottom: 1px solid #dbdada;">
-      <ion-label class="ion-text-wrap" (click)="viewCard(item._id)">
+      <ion-label class="ion-text-wrap" (click)="sharedviewCard(item._id)">
         <ion-text color="primary">
           <h1  style="font-size: 20px;"><b>Full Name : </b> {{item.card.name}} {{item.card.surname}}</h1>
         </ion-text>

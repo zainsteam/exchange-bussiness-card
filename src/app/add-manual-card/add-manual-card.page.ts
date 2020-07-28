@@ -39,7 +39,7 @@ export class AddManualCardPage implements OnInit {
     this.cardAddForm = formBuilder.group({
       name: ['', Validators.compose([Validators.required])],
       surname: ['', Validators.compose([Validators.required])],
-      workplace: ['', Validators.compose([Validators.required])],
+      workplace: ['', Validators.compose([])],
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
       cellNo: ['']
     });
