@@ -42,5 +42,12 @@
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
+
+  <ion-row style="justify-content: center;margin-top: 3%;">
+    <ion-button class="login-btn" type="button" shape="round" (click)="googleLogin()">
+      google login
+    </ion-button>
+  </ion-row>
+  
   <p  style="text-align: center;" (click)="gotoregister()">Make an Account <a>Registered here</a></p>
 </ion-content>
