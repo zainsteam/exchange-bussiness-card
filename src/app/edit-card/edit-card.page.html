@@ -24,6 +24,10 @@
 
     </ion-list>
 
+    <ion-row style="justify-content: center;margin-top: 2%;">
+      <ion-checkbox  [(ngModel)]="card.cellNoSharing" ></ion-checkbox> <ion-label style="margin-left: 10px;">Shared Phone Number</ion-label>
+    </ion-row  >
+
     <ion-row style="justify-content: center;margin-top: 5%;">
       <ion-button class="custom-buttom" type="submit" shape="round"  (click)="update()">
         UPDATE CARD

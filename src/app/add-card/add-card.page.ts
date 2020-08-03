@@ -15,6 +15,7 @@ export class AddCardPage implements OnInit {
 
   code: string;
   userId;
+  Multiple:boolean=true;
 
   constructor(public modalController: ModalController,
     private barcodeScanner: BarcodeScanner,

@@ -41,7 +41,8 @@ export class AddManualCardPage implements OnInit {
       surname: ['', Validators.compose([Validators.required])],
       workplace: ['', Validators.compose([])],
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
-      cellNo: ['']
+      cellNo: [''],
+      cellNoSharing:[true]
     });
   }
 
@@ -89,6 +90,7 @@ export class AddManualCardPage implements OnInit {
       email: this.cardAddForm.value.email,
       cellNo: this.cardAddForm.value.cellNo,
       cardType: "type3",
+      cellNoSharing:this.cardAddForm.value.cellNoSharing,
     }
     console.log(data);
 

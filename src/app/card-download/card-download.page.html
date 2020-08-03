@@ -9,7 +9,7 @@
   <div class="card-title">{{card.name}} {{card.surname}}</div>
   <div class="card-subtitle2">{{card.email}}</div>
   <div class="card-subtitle">{{card.Workplace}}</div>
-  <div class="card-subtitle3">{{card.cellNo}}</div>
+  <div *ngIf="cellNoSharing" class="card-subtitle3">{{card.cellNo}}</div>
 
   <div class="card-subtitle4">
   <ion-icon name="arrow-down-circle-outline"></ion-icon>

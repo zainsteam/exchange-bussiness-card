@@ -22,6 +22,8 @@ export class CardViewPage implements OnInit {
   // scannedData: {};
   screen: any;
   state: boolean = false;
+  cellNoSharing: boolean;
+  Multiple:boolean=false;
   barcodeScannerOptions: BarcodeScannerOptions;
 
   constructor(private route: ActivatedRoute,
@@ -46,18 +48,19 @@ export class CardViewPage implements OnInit {
     {
       this.cardid = data[0]['_id'];
       this.card = data[0]['card'];
-      console.log(this.card);
+      // this.cellNoSharing = data[0]['card'].cellNoSharing;
     },
     err => {
       console.log(err);
       console.log(err.statusText);
     });
   }
-
+  
   gencode(id){
+    console.log('multiple',this.Multiple);
     console.log(id);
     
-    this.apiService.genCode(id)
+    this.apiService.genCode(id,this.Multiple)
     .subscribe((data:any) => //Start Service
     {
       this.code = data['card'].code;

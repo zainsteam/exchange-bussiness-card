@@ -17,6 +17,8 @@ export class CardDownloadPage implements OnInit {
   state: boolean = false;
   cardid : any;
   public card : any[] ;
+  cellNoSharing: boolean;
+
   constructor(private route: ActivatedRoute,
     public apiService: ApiService,
     private platform: Platform,
@@ -48,6 +50,7 @@ export class CardDownloadPage implements OnInit {
     {
       this.cardid = data[0]['_id'];
       this.card = data[0]['card'];
+      this.cellNoSharing = data[0]['card'].cellNoSharing;
       console.log(this.card);
       
   

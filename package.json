@@ -102,7 +102,6 @@
         "REVERSED_CLIENT_ID": "68955262053-ekcrnsn5e3upgeflenp5kqsbi77d97sm.apps.googleusercontent.com",
         "PLAY_SERVICES_VERSION": "15.0.1"
       }
-      "cordova-plugin-x-toast": {}
     },
     "platforms": [
       "android"

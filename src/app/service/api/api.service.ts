@@ -59,10 +59,11 @@ export class ApiService {
   }
 
   
-  genCode(Id){
+  genCode(Id,multiple){
 
     var data = {
-      cardId: Id
+      cardId: Id,
+      multipleShare:multiple,
     };
     return this.http.post(BASE_SERVER+'/generateCode', data)
     .pipe(map(res => res));

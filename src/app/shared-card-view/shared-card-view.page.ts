@@ -54,23 +54,23 @@ viewCard(ids) {
   });
 }
 
-gencode(id){
-  console.log(id);
+// gencode(id){
+//   console.log(id);
   
-  this.apiService.genCode(id)
-  .subscribe((data:any) => //Start Service
-  {
-    this.code = data['card'].code;
-    this.encodedText(this.code);
-    console.log(this.code);
-  },
-  err => {
-    console.log(err);
-    console.log(err.statusText);
-  });
+//   this.apiService.genCode(id)
+//   .subscribe((data:any) => //Start Service
+//   {
+//     this.code = data['card'].code;
+//     this.encodedText(this.code);
+//     console.log(this.code);
+//   },
+//   err => {
+//     console.log(err);
+//     console.log(err.statusText);
+//   });
 
 
-}
+// }
 
   encodedText(code) {
     this.encodeData =code;

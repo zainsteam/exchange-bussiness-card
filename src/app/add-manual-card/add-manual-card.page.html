@@ -28,6 +28,9 @@
         <ion-input type="number" placeholder="Cell no" style="border:1px solid #888888;border-radius: 22px;margin-top: 10px;"  formControlName="cellNo" class="listInput"></ion-input>
 
     </ion-list>
+    <ion-row style="justify-content: center;margin-top: 2%;">
+    <ion-checkbox  formControlName="cellNoSharing" ></ion-checkbox> <ion-label style="margin-left: 10px;">Shared Phone Number</ion-label>
+  </ion-row  >
    
     <ion-row style="justify-content: center;margin-top: 5%;">
       <ion-button class="custom-buttom" type="submit" shape="round" [disabled]="!cardAddForm.valid">

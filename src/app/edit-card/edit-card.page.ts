@@ -25,6 +25,7 @@ export class EditCardPage implements OnInit {
   id: any;
   cardid : any;
   public card : any[] ;
+  cellNoSharing:boolean=false;
 
   constructor(public apiService: ApiService,
     public formBuilder: FormBuilder,
@@ -109,7 +110,8 @@ export class EditCardPage implements OnInit {
           surname: this.card['surname'],
           email: this.card['email'],
           cellNo: this.card['cellNo'],
-          Workplace: this.card['Workplace']
+          Workplace: this.card['Workplace'],
+          cellNoSharing:this.card['cellNoSharing']
       }
       this.apiService.cardupdate(data)
       .subscribe((data: any) => //Start Service
