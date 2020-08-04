@@ -18,7 +18,7 @@ export class CardDownloadPage implements OnInit {
   cardid : any;
   public card : any[] ;
   cellNoSharing: boolean;
-
+  multipleShare:boolean;
   constructor(private route: ActivatedRoute,
     public apiService: ApiService,
     private platform: Platform,
@@ -51,9 +51,10 @@ export class CardDownloadPage implements OnInit {
       this.cardid = data[0]['_id'];
       this.card = data[0]['card'];
       this.cellNoSharing = data[0]['card'].cellNoSharing;
-      console.log(this.card);
+      this.multipleShare = data[0]['card'].mutipleShare;
+      console.log(!this.multipleShare);
       
-  
+      
     },
     err => {
       console.log(err);
@@ -62,10 +63,15 @@ export class CardDownloadPage implements OnInit {
     
     // this.save();
   }
-
+  
   save(){
-
+    
+    
     // alert("done;");
+    if(this.card['download'] == true){
+      if(this.card['mutipleShare'] == false)
+      this.updatedownload(this.cardid,this.multipleShare);
+      console.log('run')
     this.screenshot.save('jpg', 80, this.cardid).then(res => {
       this.screen = res.filePath;
       this.state = true;
@@ -73,10 +79,32 @@ export class CardDownloadPage implements OnInit {
         toast => {
           console.log(toast);
         }
+        );
+        this.navCtrl.navigateForward(['card-list/']);
+        this.reset();
+      });
+    }
+    else
+    this.toast.show('Download not Allowed', '5000', 'bottom').subscribe(
+      toast => {
+        console.log(toast);
+      }
       );
-      this.navCtrl.navigateForward(['card-list/']);
-      this.reset();
+  }
+
+  updatedownload(cardid,multipleShare){
+    console.log(multipleShare);
+
+    this.apiService.updateDownload(cardid,multipleShare)
+    .subscribe((data:any) => //Start Service
+    {
+       console.log(data);
+    },
+    err => {
+      console.log(err);
+      console.log(err.statusText);
     });
+    
   }
 
   reset() {

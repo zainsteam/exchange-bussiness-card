@@ -48,7 +48,7 @@ export class CardViewPage implements OnInit {
     {
       this.cardid = data[0]['_id'];
       this.card = data[0]['card'];
-      // this.cellNoSharing = data[0]['card'].cellNoSharing;
+      this.cellNoSharing = data[0]['card'].cellNoSharing;
     },
     err => {
       console.log(err);

@@ -63,9 +63,19 @@ export class ApiService {
 
     var data = {
       cardId: Id,
-      multipleShare:multiple,
+      mutipleShare:multiple,
+      download: true,
     };
     return this.http.post(BASE_SERVER+'/generateCode', data)
+    .pipe(map(res => res));
+  }
+
+  updateDownload(Id, value) {
+    var data = {
+      cardId: Id,
+      download: false,
+    }
+    return this.http.post(BASE_SERVER+'/updateDownload', data)
     .pipe(map(res => res));
   }
 

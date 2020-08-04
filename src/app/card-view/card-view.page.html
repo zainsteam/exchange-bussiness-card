@@ -17,7 +17,7 @@
   <img src="../../assets/img/cardimage.jpg  "  style="max-width: none;"/>
   <div class="card-title" style="margin: 2% 0 ;"><b>Name: </b>{{card.name}} {{card.surname}}</div>
   <div class="card-subtitle2" style="margin: 2% 0 ;"><b>Workplace: </b>{{card.Workplace}}</div>
-  <div *ngIf="cellNoSharing" class="card-subtitle" style="margin: 2% 0 ;"><b>Mobile no: </b>{{card.cellNo}}</div>
+  <div *ngIf="cellNoSharing == true" class="card-subtitle" style="margin: 2% 0 ;"><b>Mobile no: </b>{{card.cellNo}}</div>
   <div class="card-subtitle" style="margin: 2% 0 ;"><b>Email: </b>{{card.email}}</div>
 
 </ion-card>
