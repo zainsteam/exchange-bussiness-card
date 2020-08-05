@@ -68,8 +68,8 @@ export class CardDownloadPage implements OnInit {
     
     
     // alert("done;");
-    if(this.card['download'] == true){
-      if(this.card['mutipleShare'] == false)
+    if(this.card['download'] == true || this.card['download'] == undefined){
+      if(this.card['mutipleShare'] == false )
       this.updatedownload(this.cardid,this.multipleShare);
       console.log('run')
     this.screenshot.save('jpg', 80, this.cardid).then(res => {
