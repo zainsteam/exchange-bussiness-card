@@ -51,12 +51,14 @@ export class CardListPage implements OnInit {
   }
   sharedviewCard(id){
     console.log(id);
-    this.navCtrl.navigateForward(['shared-card-view/']+id);
+    let parm = "shared";
+    this.navCtrl.navigateForward(['shared-card-view/']+id+'/'+parm);
   }
 
   viewCard(id){
     console.log(id);
-    this.navCtrl.navigateForward(['card-view/']+id);
+    let parm = "own";
+    this.navCtrl.navigateForward(['card-view/']+id+'/'+parm);
     // this.route.navigate(['view-card',{id:id}])
     // this.navCtrl.back();
 

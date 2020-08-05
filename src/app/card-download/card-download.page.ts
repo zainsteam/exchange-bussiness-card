@@ -19,6 +19,7 @@ export class CardDownloadPage implements OnInit {
   public card : any[] ;
   cellNoSharing: boolean;
   multipleShare:boolean;
+  cardSO:any;
   constructor(private route: ActivatedRoute,
     public apiService: ApiService,
     private platform: Platform,
@@ -31,8 +32,9 @@ export class CardDownloadPage implements OnInit {
    ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.cardSO = params['card'];
     });
-    console.log('id',this.id);
+    console.log('id',this.cardSO);
     this.viewCard(this.id);
     
   }
@@ -68,7 +70,7 @@ export class CardDownloadPage implements OnInit {
     
     
     // alert("done;");
-    if(this.card['download'] == true || this.card['download'] == undefined){
+    if(this.card['download'] == true || this.card['download'] == undefined || this.cardSO == "own"){
       if(this.card['mutipleShare'] == false )
       this.updatedownload(this.cardid,this.multipleShare);
       console.log('run')

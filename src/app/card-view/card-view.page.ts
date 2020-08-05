@@ -23,6 +23,7 @@ export class CardViewPage implements OnInit {
   screen: any;
   state: boolean = false;
   cellNoSharing: boolean;
+  cardSO:any;
   Multiple:boolean=false;
   barcodeScannerOptions: BarcodeScannerOptions;
 
@@ -36,8 +37,10 @@ export class CardViewPage implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.cardSO = params['card'];
+
     });
-    console.log(this.id);
+    console.log(this.cardSO);
       this.viewCard(this.id);
   }
   viewCard(ids) {
@@ -103,7 +106,7 @@ export class CardViewPage implements OnInit {
 
   gotoDownload(){
     // console.log(this.cardid);
-    this.navCtrl.navigateForward(['card-download/']+this.cardid);
+    this.navCtrl.navigateForward(['card-download/']+this.cardid+'/'+this.cardSO);
 
 
   }

@@ -22,6 +22,7 @@ export class SharedCardViewPage implements OnInit {
   // scannedData: {};
   screen: any;
   state: boolean = false;
+  cardSO:any;
   barcodeScannerOptions: BarcodeScannerOptions;
 
   constructor(private route: ActivatedRoute,
@@ -34,8 +35,10 @@ export class SharedCardViewPage implements OnInit {
 ngOnInit() {
   this.sub = this.route.params.subscribe(params => {
     this.id = params['id'];
+    this.cardSO = params['card'];
+
   });
-  console.log(this.id);
+  console.log(this.cardSO);
     this.viewCard(this.id);
 }
 viewCard(ids) {
@@ -100,7 +103,7 @@ download:boolean = false;
 
 gotoDownload(){
   // console.log(this.cardid);
-  this.navCtrl.navigateForward(['card-download/']+this.cardid);
+  this.navCtrl.navigateForward(['card-download/']+this.cardid+'/'+this.cardSO);
 
 
 }

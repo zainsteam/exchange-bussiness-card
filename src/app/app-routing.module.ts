@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-manual-card/add-manual-card.module').then( m => m.AddManualCardPageModule)
   },
   {
-    path: 'card-view/:id',
+    path: 'card-view/:id/:card',
     loadChildren: () => import('./card-view/card-view.module').then( m => m.CardViewPageModule)
   },
   {
@@ -40,11 +40,11 @@ const routes: Routes = [
     loadChildren: () => import('./edit-card/edit-card.module').then( m => m.EditCardPageModule)
   },
   {
-    path: 'card-download/:id',
+    path: 'card-download/:id/:card',
     loadChildren: () => import('./card-download/card-download.module').then( m => m.CardDownloadPageModule)
   },
   {
-    path: 'shared-card-view/:id',
+    path: 'shared-card-view/:id/:card',
     loadChildren: () => import('./shared-card-view/shared-card-view.module').then( m => m.SharedCardViewPageModule)
   }
 
