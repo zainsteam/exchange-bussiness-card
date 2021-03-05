@@ -9,13 +9,14 @@ export const environment = {
     messagingSenderId: "68955262053",
     appId: "1:68955262053:web:fdbc594d292db56fb9ca8c",
     measurementId: "G-0BNNSMWTYX"
-  },
-  authentication: {
-    google: {
-      webClientId: '68955262053-ekcrnsn5e3upgeflenp5kqsbi77d97sm.apps.googleusercontent.com',
-      offline: true
-    }
   }
+  // ,
+  // authentication: {
+  //   google: {
+  //     webClientId: '68955262053-ekcrnsn5e3upgeflenp5kqsbi77d97sm.apps.googleusercontent.com',
+  //     offline: true
+  //   }
+  // }
 };
 
 export const BASE_SERVER = 'https://cardserver93.herokuapp.com';

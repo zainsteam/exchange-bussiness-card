@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController,Platform  } from '@ionic/angular';
 import { ApiService } from '../service/api/api.service';
-import { GoogleLoginService } from '../service/googleLogin/google-login-service.service';
+// import { GoogleLoginService } from '../service/googleLogin/google-login-service.service';
 import { Router } from '@angular/router';
 import { Toast } from '@ionic-native/toast/ngx';
 import { FCM } from 'cordova-plugin-fcm-with-dependecy-updated/ionic';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
+// import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 
 @Component({
@@ -39,8 +39,9 @@ export class LoginPage implements OnInit {
     private toast: Toast,
     private platform: Platform,
     public apiService: ApiService,
-    private google: GooglePlus,
-    public googleLoginSer: GoogleLoginService) {
+    // private google: GooglePlus,
+    // public googleLoginSer: GoogleLoginService
+    ) {
      
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'), Validators.required])],
@@ -56,17 +57,17 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateForward(['/register']);
   }
 
-  googleLogin()
-  {
-    console.log("run googleLogin");
+  // googleLogin()
+  // {
+  //   console.log("run googleLogin");
 
-    this.googleLoginSer.loginGoogle()
-    .then(res => {
-      console.log("res", res);
-    },err => {
-      console.log("err", err);
-    });
-  }
+  //   this.googleLoginSer.loginGoogle()
+  //   .then(res => {
+  //     console.log("res", res);
+  //   },err => {
+  //     console.log("err", err);
+  //   });
+  // }
 
   loginUser() {
     console.log("loginUser Method");

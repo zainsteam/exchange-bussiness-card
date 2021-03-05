@@ -15,25 +15,25 @@ export class GoogleLoginService {
   constructor(private http: HttpClient,
     private google: GooglePlus) { }
 
-  async loginGoogle() 
-  {
-    return new Promise<any>((resolve, reject) => {
+  // async loginGoogle() 
+  // {
+  //   return new Promise<any>((resolve, reject) => {
 
-      this.google.login({})
-      .then(res => {
-        console.log(res);
-        resolve(res);
-        //     // this.http.post(BASE_SERVER+'/socialLogin', userServer)
-        //     // .subscribe((response) => {
-        //     //   resolve(response.json());
-        //     // },err => reject(err));
-      })
-      .catch(err => {
-        console.error(err);
-        reject(err);
-      });
+  //     this.google.login({})
+  //     .then(res => {
+  //       console.log(res);
+  //       resolve(res);
+  //       //     // this.http.post(BASE_SERVER+'/socialLogin', userServer)
+  //       //     // .subscribe((response) => {
+  //       //     //   resolve(response.json());
+  //       //     // },err => reject(err));
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //       reject(err);
+  //     });
 
-    });
-  }
+  //   });
+  // }
     
 }

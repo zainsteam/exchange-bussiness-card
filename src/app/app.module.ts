@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { ApiService } from './service/api/api.service';
-import { GoogleLoginService } from './service/googleLogin/google-login-service.service';
+// import { GoogleLoginService } from './service/googleLogin/google-login-service.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +20,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Contacts } from '@ionic-native/contacts/ngx';
 import { Screenshot } from '@ionic-native/screenshot/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
+// import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 // firebase imports, omit what you don't need for your app
@@ -57,8 +57,8 @@ firebase.initializeApp(environment.firebase);
     BarcodeScanner,
     Toast,
     Contacts,
-    GoogleLoginService,
-    GooglePlus,
+    // GoogleLoginService,
+    // GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
