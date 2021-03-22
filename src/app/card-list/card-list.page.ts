@@ -12,8 +12,10 @@ import { EditCardPage } from '../edit-card/edit-card.page'
 export class CardListPage implements OnInit {
 
   userId;
-  public cards : any[] ;
+  public cards;
   public yourcards : any[] ;
+  flag1;
+  flag2;
 
   constructor(public apiService: ApiService,
     private route: Router,
@@ -61,8 +63,6 @@ export class CardListPage implements OnInit {
     this.navCtrl.navigateForward(['card-view/']+id+'/'+parm);
     // this.route.navigate(['view-card',{id:id}])
     // this.navCtrl.back();
-
-
   }
 
   getCards() {
@@ -73,6 +73,8 @@ export class CardListPage implements OnInit {
       console.log(data);
       this.cards = data;
       this.getSharedCard();
+      if (this.cards.length > 0)
+      this.flag1 = true;
     },
     err => {
       console.log(err);
@@ -85,6 +87,8 @@ export class CardListPage implements OnInit {
     {
       console.log('shared',data);
       this.yourcards = data;
+      if (this.yourcards.length > 0 )
+      this.flag2 = true;
       // for(var i = 0 ; i < data.length; i++){
       //   console.log('asdasd');
       //   this.cards.push(data[i]);

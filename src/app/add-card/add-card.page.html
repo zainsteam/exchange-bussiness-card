@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -18,9 +18,9 @@
       <p style="margin: 0 6%;">use your phone to scan a QR code</p>
     </ion-item>
   </div>
-  <ion-input style="border: 1px solid #888888;width: 50%; margin: 12px auto;border-radius: 22px" placeholder="Enter The Code" value="{{code}}" [(ngModel)]="code" type="text" maxlength="4" (ngModelChange)="codefun(code)"></ion-input>
+  <ion-input style="padding-left: 15px !important;border: 1px solid #888888;width: 50%; margin: 12px auto;border-radius: 22px" placeholder="Enter The Code" value="{{code}}" [(ngModel)]="code" type="text" maxlength="4" (ngModelChange)="codefun(code)"></ion-input>
   <ion-row style="justify-content: center;margin-top: 5%;">
-  <ion-button expand="block" type="button" (click)="presentModal()"  shape="round">Add Bussiness Card Manualy </ion-button>
+  <ion-button expand="block" type="button" (click)="presentModal()"  shape="round">Add Visiting Card Manualy </ion-button>
   </ion-row>
  
 </ion-content>
