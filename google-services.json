@@ -1,40 +1,47 @@
 {
-    "project_info": {
-      "project_number": "68955262053",
-      "firebase_url": "https://cardserver-a776c.firebaseio.com",
-      "project_id": "cardserver-a776c",
-      "storage_bucket": "cardserver-a776c.appspot.com"
-    },
-    "client": [
-      {
-        "client_info": {
-          "mobilesdk_app_id": "1:68955262053:android:72645c2f3b16944db9ca8c",
-          "android_client_info": {
-            "package_name": "io.busniesscard.starter"
-          }
-        },
-        "oauth_client": [
-          {
-            "client_id": "68955262053-qi1p77ppgsa1ugvv56pduf8qjnkroigk.apps.googleusercontent.com",
-            "client_type": 3
-          }
-        ],
-        "api_key": [
-          {
-            "current_key": "AIzaSyBTEoALO18RC_S-ZAFtQly4GpcJW2HavJY"
-          }
-        ],
-        "services": {
-          "appinvite_service": {
-            "other_platform_oauth_client": [
-              {
-                "client_id": "68955262053-qi1p77ppgsa1ugvv56pduf8qjnkroigk.apps.googleusercontent.com",
-                "client_type": 3
+  "project_info": {
+    "project_number": "651995818023",
+    "firebase_url": "https://card-eaf72-default-rtdb.firebaseio.com",
+    "project_id": "card-eaf72",
+    "storage_bucket": "card-eaf72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651995818023:android:8f2cf8d06acd8f30488602",
+        "android_client_info": {
+          "package_name": "io.visitingcard.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651995818023-d3n85daupu4p4jmoqkpqbi53d1p7rq3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKFjGW9ZfeLlrspn2mw8osekdxwL39rfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651995818023-d3n85daupu4p4jmoqkpqbi53d1p7rq3s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "651995818023-fmcmaj0774m2f4i6sdf8at614rjdue01.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "card"
               }
-            ]
-          }
+            }
+          ]
         }
       }
-    ],
-    "configuration_version": "1"
-  }
+    }
+  ],
+  "configuration_version": "1"
+}
