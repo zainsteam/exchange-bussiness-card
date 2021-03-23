@@ -90,7 +90,9 @@
         "ANDROID_FCM_VERSION": "19.0.0",
         "ANDROID_GRADLE_TOOLS_VERSION": "3.5.3",
         "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
-        "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.4.0"
+        "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.4.0",
+        "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
+        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4"
       },
       "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
